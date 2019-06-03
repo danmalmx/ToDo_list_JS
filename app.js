@@ -14,6 +14,9 @@ form.addEventListener("submit", addTask);
 taskList.addEventListener("click", removeTask);
 //Clear task button event
 clearBtn.addEventListener("click", clearTasks);
+//Filter tasks events
+filter.addEventListener('keyup', filterTasks);
+
 
 //Add task function
 function addTask(e) {
