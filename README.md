@@ -1,1 +1,1 @@
-# ToDo_list_JS
+# ToDo List created in JavaScript
