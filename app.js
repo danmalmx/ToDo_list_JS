@@ -13,7 +13,7 @@ form.addEventListener("submit", addTask);
 //Remove task event
 taskList.addEventListener("click", removeTask);
 //Clear task button event
-clearBtn.addEventListener("click", clearTasks)
+clearBtn.addEventListener("click", clearTasks);
 
 //Add task function
 function addTask(e) {
@@ -52,5 +52,12 @@ function removeTask(e) {
     if (confirm("Are you sure?")) {
       e.target.parentElement.parentElement.remove();
     }
+  }
+}
+
+//Clear tasks button function
+function clearTasks() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
   }
 }
