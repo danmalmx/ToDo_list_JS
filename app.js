@@ -51,6 +51,18 @@ function addTask(e) {
   e.preventDefault();
 }
 
+//Local storage of task
+function storeTaskInLocalStorage(task) {
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
 // Remove task
 function removeTask(e) {
   if (e.target.parentElement.classList.contains("delete-item")) {
