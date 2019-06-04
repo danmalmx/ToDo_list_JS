@@ -19,6 +19,38 @@ clearBtn.addEventListener("click", clearTasks);
 //Filter tasks events
 filter.addEventListener("keyup", filterTasks);
 
+//Get task from storage
+function getTasks() {
+  let tasks;
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+
+  tasks.forEach(function(task) {
+    // Add task element
+    const li = document.createElement("li");
+    //Add class name
+    li.className = "collection-item";
+    //Adding text to li elelment
+    li.appendChild(document.createTextNode(task));
+
+    //Create link element
+    const link = document.createElement("a");
+    //Add class name
+    link.className = "delete-item secondary-content";
+    //Add icon (html)
+    link.innerHTML = '<i class="fa fa-remove"</i>';
+
+    //Append link to li
+    li.appendChild(link);
+
+    //Append li to ul
+    taskList.appendChild(li);
+  });
+}
+
 //Add task function
 function addTask(e) {
   if (taskInput.value === "") {
